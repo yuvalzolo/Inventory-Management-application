@@ -9,5 +9,9 @@ frontend folder :
 npm install
 npm run ng serve
 
-After the 2 servers are running open the browser on url http://localhost:4200 (but the api is listening on port 3000)
+After the 2 servers are running open the browser on url http://localhost:4200 (the api server is listening to port 3000)
 
+Enjoy:)
+
+
+©Yuval Zolotovitzky
