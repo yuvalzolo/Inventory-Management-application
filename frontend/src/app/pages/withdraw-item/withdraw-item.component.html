@@ -1,0 +1,19 @@
+<div class="centered-content">
+  <div class="modal-box has-background-light">
+    <h1 class="title">
+      Withraw item
+    </h1>
+    <input #IdInput class="input has-background-light is-medium" type="text" placeholder="Enter item id...">
+    <br><br>
+    <input #CountInput class="input has-background-light is-medium" type="number" placeholder="Enter count...">
+    <br><br>
+    <div class="buttons is-right">
+      <button class="button is-medium" routerLink="/">Cancel</button>
+      <button class="button is-primary has-text-white is-medium" (click)="withdrawItem(IdInput.value, CountInput.valueAsNumber)" routerLink="/">Withdraw</button>
+    </div>
+    <button routerLink="/" class="button" style="margin-top: 35px;">
+      Go back
+    </button>
+  </div>
+</div>
+

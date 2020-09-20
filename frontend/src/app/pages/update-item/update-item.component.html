@@ -1,0 +1,34 @@
+<div class="centered-content">
+  <div class="modal-box has-background-light">
+    <h1 class="title">
+      Update Item
+    </h1>
+    <input #IdInput class="input has-background-light is-medium" type="text" placeholder="Enter item id...">
+    <br><br>
+    <div class="buttons is-right">
+      <button class="button is-medium" routerLink="/">Cancel</button>
+      <button class="button is-primary has-text-white is-medium" (click)="getItemById(IdInput.value)" >Find</button>
+    </div>
+    <div class="task-list-container has-background-light" >
+      <div class="task" *ngFor="let names of names" >
+        <p>
+          <label>Name:</label>
+          <input #NameInput class="input has-background-light is-medium" type="text" value="{{names}} " >
+          <br><br>
+          <label>Description:</label>
+          <tbody *ngFor="let descriptions of descriptions"></tbody>
+          <input #DescriptionInput class="input has-background-light is-medium" type="text" value="{{descriptions}}">
+          <br><br>
+          <label>Count:</label>
+          <tbody *ngFor="let counts of counts"></tbody>
+          <input #CountInput class="input has-background-light is-medium" type="number" value="{{counts}}">
+          <br><br>
+          <button class="button is-primary has-text-white is-medium" (click)="updateItem(IdInput.value, NameInput.value, DescriptionInput.value, CountInput.valueAsNumber)" routerLink="/" >Update Item</button>
+        </p>
+      </div>
+    </div>
+    <button routerLink="/" class="button" style="margin-top: 35px;">
+      Go back
+    </button>
+  </div>
+</div>
