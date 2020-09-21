@@ -27,10 +27,15 @@ export class WithdrawItemComponent implements OnInit {
           window.location.replace('/');
         }
         else {
-          if (response.description === 'negative item') {
-            alert('Unable to withdraw more items then you have in stock \n' + `current count: ${response.count}`);
-          } else {
-            window.location.replace('/');
+          if (count < 0){
+            alert('Count must be positive');
+          }
+          else {
+            if (response.description === 'negative item') {
+              alert('Unable to withdraw more items then you have in stock \n' + `current count: ${response.count}`);
+            } else {
+              window.location.replace('/');
+            }
           }
         }
       }
