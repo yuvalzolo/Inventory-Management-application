@@ -22,7 +22,8 @@ function addItem(request,response){
     const name=request.body.name;
     const description = request.body.description;
     const count =request.body.count;
-    database.push({id:itemId,...item});
+    if (count>0)
+        database.push({id:itemId,...item});
     response.send("Item added");
 }
 
