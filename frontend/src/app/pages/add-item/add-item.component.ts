@@ -8,6 +8,7 @@ import {TaskViewComponent} from '../task-view/task-view.component';
   styleUrls: ['./add-item.component.scss']
 })
 export class AddItemComponent implements OnInit {
+  count: number;
   constructor(private taskService: TaskService) { }
 
   ngOnInit(): void {
@@ -16,7 +17,13 @@ export class AddItemComponent implements OnInit {
   createItem(name: string, description: string, count: number){
     this.taskService.newItem(name, description, count).subscribe((response: any) => {
       console.log(response);
+      this.count = response.count;
     });
-    window.location.replace('/');
+    if (count > 0) {
+      window.location.replace('/');
+    }
+    else{
+      alert('count must be positive');
+    }
   }
 }
