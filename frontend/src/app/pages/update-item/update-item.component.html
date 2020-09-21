@@ -21,9 +21,9 @@
           <br><br>
           <label>Count:</label>
           <tbody *ngFor="let counts of counts"></tbody>
-          <input #CountInput class="input has-background-light is-medium" type="number" value="{{counts}}">
+          <input #CountInput class="input has-background-light is-medium" type="number"  pattern="^[0-9]" title='Only Number' min="1" step="1"value="{{counts}}">
           <br><br>
-          <button class="button is-primary has-text-white is-medium" (click)="updateItem(IdInput.value, NameInput.value, DescriptionInput.value, CountInput.valueAsNumber)" routerLink="/" >Update Item</button>
+          <button class="button is-primary has-text-white is-medium" (click)="updateItem(IdInput.value, NameInput.value, DescriptionInput.value, CountInput.valueAsNumber)"  >Update Item</button>
         </p>
       </div>
     </div>
