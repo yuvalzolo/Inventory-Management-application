@@ -15,10 +15,15 @@ export class GetItemComponent implements OnInit {
   // tslint:disable-next-line:typedef
   getItemById(id: string){
     this.taskService.getItem(id).subscribe((response: any) => {
-      console.log(response.name);
-      this.item.push('name: ' + response.name);
-      this.item.push('description: ' + response.description);
-      this.item.push('count: ' + response.count);
+      console.log(response);
+      if (response === null || response === undefined) {
+        alert('item not found');
+      }
+      else{
+        this.item.push('name: ' + response.name);
+        this.item.push('description: ' + response.description);
+        this.item.push('count: ' + response.count);
+      }
     });
   }
 
