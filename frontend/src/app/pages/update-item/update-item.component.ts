@@ -27,16 +27,20 @@ export class UpdateItemComponent implements OnInit {
   // tslint:disable-next-line:typedef
   getItemById(id: string){
     this.taskService.getItem(id).subscribe((response: any) => {
-      console.log(response.name);
-      this.item.push('name: ' + response.name);
-      this.item.push('description: ' + response.description);
-      this.item.push('count: ' + response.count);
-      this.name = response.name;
-      this.names.push(this.name);
-      this.description = response.description;
-      this.descriptions.push(this.description);
-      this.count = response.count;
-      this.counts.push(this.count);
+      if (response === null || response === undefined){
+        alert('Item not found');
+      }
+      else {
+        this.item.push('name: ' + response.name);
+        this.item.push('description: ' + response.description);
+        this.item.push('count: ' + response.count);
+        this.name = response.name;
+        this.names.push(this.name);
+        this.description = response.description;
+        this.descriptions.push(this.description);
+        this.count = response.count;
+        this.counts.push(this.count);
+      }
     });
   }
   // tslint:disable-next-line:typedef
@@ -45,8 +49,18 @@ export class UpdateItemComponent implements OnInit {
     this.taskService.updateItemById(id, name, description, count).subscribe((response: any) => {
       console.log(response);
     });
-    window.location.replace('/');
-  }
+    if (count < 1){
+      alert('Count must be positive');
+    }
+    else{
+      if (count === null) {
+        alert('Must enter count');
+      }
+      else {
+        window.location.replace('/');
+      }
+      }
+    }
   // tslint:disable-next-line:typedef
   getAllItems(){
     this.taskService.getItems().subscribe((response: any) => {
