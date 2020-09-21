@@ -77,7 +77,8 @@ function withdrawItem(request,response){
             response.send(tempItem);
         }
         else {
-            item.count = new_amount;
+            if(count>0)
+                item.count = new_amount;
             response.send(item);
         }
     }
