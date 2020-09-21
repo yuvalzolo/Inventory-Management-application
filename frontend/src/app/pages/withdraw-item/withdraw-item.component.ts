@@ -27,7 +27,7 @@ export class WithdrawItemComponent implements OnInit {
           window.location.replace('/');
         }
         else {
-          if (count < 0){
+          if (count <= 0){
             alert('Count must be positive');
           }
           else {
