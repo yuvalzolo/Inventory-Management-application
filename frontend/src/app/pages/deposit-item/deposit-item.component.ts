@@ -16,8 +16,18 @@ export class DepositItemComponent implements OnInit {
   depositItem(id: string, count: number){
     this.taskService.depositItemById(id, count).subscribe((response: any) => {
       console.log(response);
+      if (response === null || response === undefined){
+        alert('Item not found');
+      }
+      else{
+        if (count < 1){
+          alert('Count must be positive number');
+        }
+        else {
+          window.location.replace('/');
+        }
+      }
     });
-    window.location.replace('/');
   }
 
 }
