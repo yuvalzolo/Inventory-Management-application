@@ -47,9 +47,11 @@ function updateItem(request,response){
     const { id } = request.params;
     const { name, description, count} = request.body;
     const item = database.find((item) => item.id===id);
-    if(name) item.name=name;
-    if(description) item.description=description;
-    if(count) item.count=count;
+    if (count>0){
+        if(name) item.name=name;
+        if(description) item.description=description;
+        if(count) item.count=count;
+    }
     response.send(item);
 }
 
